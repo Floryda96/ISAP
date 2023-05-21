@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>QMainWindow</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>928</width>
+    <height>579</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Program autoISAP</string>
+  </property>
+  <widget class="QWidget" name="horizontalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>921</width>
+     <height>401</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QListView" name="Listaustaw"/>
+    </item>
+    <item>
+     <widget class="QListView" name="Listadziennikow"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>430</y>
+     <width>391</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QPushButton" name="Dodajustawe">
+      <property name="text">
+       <string>Dodaj ustawę</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="Usunustawe">
+      <property name="text">
+       <string>Usuń ustawę</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="Kopiujdziennik">
+      <property name="text">
+       <string>Kopiuj dzienniki ustaw</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="Wyjscie">
+      <property name="text">
+       <string>Wyjście</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>Kopiujdziennik</sender>
+   <signal>clicked()</signal>
+   <receiver>Listadziennikow</receiver>
+   <slot>selectAll()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>458</x>
+     <y>517</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>703</x>
+     <y>366</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Listaustaw</sender>
+   <signal>indexesMoved(QModelIndexList)</signal>
+   <receiver>Listadziennikow</receiver>
+   <slot>update()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>229</x>
+     <y>200</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>691</x>
+     <y>200</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
